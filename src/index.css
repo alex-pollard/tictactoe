@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,3 +13,43 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.title{
+  background: rgb(182, 181, 196);
+  font-size: 80px;
+  margin: 40px;
+  text-align: center;
+}
+
+.status{
+  font: "Arial";
+  background: rgb(87, 7, 73);
+  font-size: 40px;
+  margin: 40px;
+  text-align: center;
+}
+.square {
+  background: rgb(11, 142, 146);
+  border: 5px solid rgb(0, 0, 0);
+  float: left;
+  font-size: 200px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 200px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 200px;
+}
+
+.resetButton{
+  align-items: center;
+}
+
