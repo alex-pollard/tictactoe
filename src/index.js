@@ -49,9 +49,12 @@ class Board extends React.Component {
     const winner = calculateWinner(this.state.squares);
     if (winner) {
       status = "Winner: " + winner;
+
       return (
         <>
-          <Title className="status">{status}!</Title>
+          <Title className="status" id="move">
+            {status}!
+          </Title>
           <Button type="primary" onClick={refreshPage}>
             Reset
           </Button>
@@ -60,7 +63,6 @@ class Board extends React.Component {
     } else {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
-
     return (
       <div>
         <Title>Tic Tac Toe!</Title>
