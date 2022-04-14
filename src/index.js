@@ -1,14 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import {calculateWinner} from './helpers.js'
-import {Typography, Space, Button} from 'antd'
+import React from "react";
+import ReactDOM from "react-dom";
+import "antd/dist/antd.css";
+import "./index.css";
+import { calculateWinner, refreshPage } from "./helpers.js";
+import { Layout, Menu, Breadcrumb, Typography, Space, Button } from "antd";
+import psl from "./psl.png";
 
-const {Title} = Typography;
-//import ShoppingList from './shoppingList';
-function refreshPage() {
-  window.location.reload(false);
-}
+const { Header, Sider } = Layout;
+const { Title } = Typography;
 
 function Square(props) {
   return (
@@ -29,7 +28,7 @@ class Board extends React.Component {
 
   handleClick(i) {
     const squares = this.state.squares.slice();
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    squares[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
       squares: squares,
       xIsNext: !this.state.xIsNext,
@@ -46,24 +45,26 @@ class Board extends React.Component {
   }
 
   render() {
-   let status;
-   const winner = calculateWinner(this.state.squares);
-    if (winner){
-     status= 'Winner: ' + winner;
-     return( 
-       <>
-        <Typography className="status">{status}</Typography>
-        <Button type="primary"  onClick={refreshPage}>Reset</Button>
-        </>)
+    let status;
+    const winner = calculateWinner(this.state.squares);
+    if (winner) {
+      status = "Winner: " + winner;
+      return (
+        <>
+          <Title className="status">{status}!</Title>
+          <Button type="primary" onClick={refreshPage}>
+            Reset
+          </Button>
+        </>
+      );
+    } else {
+      status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
-    else{
-    status='Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-  }
-    
+
     return (
       <div>
-        
-        <Typography className="status">{status}</Typography>
+        <Title>Tic Tac Toe!</Title>
+        <Title level={3}>{status}</Title>
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -85,24 +86,12 @@ class Board extends React.Component {
 }
 
 class Game extends React.Component {
-  
   render() {
-    let title;
-    let random;
-    random = Math.floor(Math.random() * 11);
-    title = (random > 9) ? "Toe Toe Toe" : "Tic Tac Toe";
     return (
-      <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}className="game">
-        <Space type='vertical'>
+      <div style={{ alignItems: "center", height: "80vh" }} className="game">
         <div className="game-board">
-        <Title className="title">{title}</Title>
           <Board />
         </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
-        </div>
-        </Space>
       </div>
     );
   }
@@ -111,9 +100,28 @@ class Game extends React.Component {
 // ========================================
 
 ReactDOM.render(
-  <>
-
-  <Game />
-  </>,
-  document.getElementById('root')
+  <Layout>
+    <Header className="header">
+      <div className="logo" />
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
+        <Menu.Item key="1">Home</Menu.Item>
+        <img src={psl} width="80px" alt="Psl" />
+      </Menu>
+    </Header>
+    <Layout>
+      <Sider width={200} theme="light" className="site-layout-background">
+        <Title type={2}>
+          I did not steal the logo from playstation, they stole it from me.
+        </Title>
+      </Sider>
+      <Layout style={{ padding: "0 24px 0px" }}>
+        <Breadcrumb style={{ margin: "16px 0" }}>
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>Tic Tac Toe</Breadcrumb.Item>
+        </Breadcrumb>
+        <Game />
+      </Layout>
+    </Layout>
+  </Layout>,
+  document.getElementById("root")
 );
