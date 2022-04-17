@@ -1,18 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Link, Router, Route } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./index.css";
 import { calculateWinner, refreshPage } from "./helpers.js";
-import { Layout, Menu, Breadcrumb, Space, Button } from "antd";
-import { Typography } from "antd";
+import { Layout, Menu, Breadcrumb, Typography, Space, Button } from "antd";
 import psl from "./psl.png";
 
-const { Title } = Typography;
-const { Text } = Typography;
-
 const { Header, Sider } = Layout;
+const { Title } = Typography;
 
 function Square(props) {
   return (
@@ -57,9 +53,9 @@ class Board extends React.Component {
 
       return (
         <>
-          <text className="status" id="move">
+          <Title className="status" id="move">
             {status}!
-          </text>
+          </Title>
           <Button type="primary" onClick={refreshPage}>
             Reset
           </Button>
@@ -70,12 +66,8 @@ class Board extends React.Component {
     }
     return (
       <div>
-        {/* Endpoint to route to About component */}
-        <Link to="/google.ca">Home</Link>
-
-        <Text className="alexGames">Alex's Games - Tic Tac Toe!</Text>
-        <br />
-        <Text className="status">{status}</Text>
+        <Title>Tic Tac Toe!</Title>
+        <Title level={3}>{status}</Title>
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -120,17 +112,17 @@ ReactDOM.render(
       </Menu>
     </Header>
     <Layout>
-      <Sider className="sider">
-        <Text className="sideText">
+      <Sider width={200} theme="" className="site-layout-background">
+        <Title type={3}>
           I did not steal the logo from playstation, they stole it from me.
-        </Text>
+        </Title>
+        <Link to="./Dashboard"> Dashboard</Link>
       </Sider>
       <Layout style={{ padding: "0 24px 0px" }}>
         <Breadcrumb style={{ margin: "16px 0" }}>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>Tic Tac Toe</Breadcrumb.Item>
         </Breadcrumb>
-
         <Game />
       </Layout>
     </Layout>

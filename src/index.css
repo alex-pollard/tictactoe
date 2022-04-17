@@ -8,6 +8,22 @@ code {
     monospace;
 }
 
+.alexGames {
+  font-size: 30px;
+  font-weight: bold;
+}
+.status {
+  font-size: 25px;
+  font-weight: bold;
+}
+.sider {
+  background: rgb(80, 83, 83);
+}
+
+.sideText {
+  color: rgb(255, 255, 255);
+  font-size: 10px;
+}
 .Psl {
   background-image: url(./psl.png);
 }
