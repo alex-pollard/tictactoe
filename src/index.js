@@ -121,10 +121,12 @@ ReactDOM.render(
     </Header>
     <Layout>
       <Sider className="sider">
-        <Text className="sideText">
-          I did not steal the logo from playstation, they stole it from me.
-        </Text>
-        <PogButton></PogButton>
+        <Space direction="vertical">
+          <Text className="sideText">
+            I did not steal the logo from playstation, they stole it from me.
+          </Text>
+          <PogButton />
+        </Space>
       </Sider>
       <Layout style={{ padding: "0 24px 0px" }}>
         <Breadcrumb style={{ margin: "16px 0" }}>
