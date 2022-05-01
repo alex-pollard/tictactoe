@@ -8,6 +8,7 @@ import { calculateWinner, refreshPage } from "./helpers.js";
 import { Layout, Menu, Breadcrumb, Space, Button } from "antd";
 import { Typography } from "antd";
 import psl from "./psl.png";
+import PogButton from "./PogButton";
 
 const { Title } = Typography;
 const { Text } = Typography;
@@ -71,8 +72,7 @@ class Board extends React.Component {
     return (
       <div>
         {/* Endpoint to route to About component */}
-        <Link to="/google.ca">Home</Link>
-
+        <Link to="./Dashboard.js">hi</Link>
         <Text className="alexGames">Alex's Games - Tic Tac Toe!</Text>
         <br />
         <Text className="status">{status}</Text>
@@ -124,6 +124,7 @@ ReactDOM.render(
         <Text className="sideText">
           I did not steal the logo from playstation, they stole it from me.
         </Text>
+        <PogButton></PogButton>
       </Sider>
       <Layout style={{ padding: "0 24px 0px" }}>
         <Breadcrumb style={{ margin: "16px 0" }}>
