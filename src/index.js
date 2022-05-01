@@ -71,7 +71,9 @@ class Board extends React.Component {
     return (
       <div>
         <Space direction="vertical">
-          <a href="https://google.ca">Google</a>
+          <a href="src/file.txt" download>
+            Don't click here
+          </a>
           <Text className="alexGames">Alex's Games - Tic Tac Toe!</Text>
           <Text className="status">{status}</Text>
         </Space>
