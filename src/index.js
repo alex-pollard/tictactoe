@@ -10,7 +10,6 @@ import { Typography } from "antd";
 import psl from "./psl.png";
 import PogButton from "./PogButton";
 
-const { Title } = Typography;
 const { Text } = Typography;
 
 const { Header, Sider } = Layout;
@@ -71,11 +70,11 @@ class Board extends React.Component {
     }
     return (
       <div>
-        {/* Endpoint to route to About component */}
-        <Link to="./Dashboard.js">hi</Link>
-        <Text className="alexGames">Alex's Games - Tic Tac Toe!</Text>
-        <br />
-        <Text className="status">{status}</Text>
+        <Space direction="vertical">
+          <a href="https://google.ca">Google</a>
+          <Text className="alexGames">Alex's Games - Tic Tac Toe!</Text>
+          <Text className="status">{status}</Text>
+        </Space>
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
